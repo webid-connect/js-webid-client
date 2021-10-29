@@ -460,10 +460,11 @@ function TokenFlow (client) {
  * @param  {Object} [opts]
  * @return {string}
  */
-TokenFlow.prototype.getUri = function (opts) {
+TokenFlow.prototype.getUri = function (opts, responseType) {
   var options = Object.assign({}, this.client.options, opts)
+  var tokenType = (responseType === undefined) ? 'token' : responseType
 
-  return createUri(options, 'token')
+  return createUri(options, tokenType)
 }
 
 /**
@@ -576,10 +577,11 @@ function CodeFlow (client) {
  * @param  {Object} [opts]
  * @return {string}
  */
-CodeFlow.prototype.getUri = function (opts) {
+CodeFlow.prototype.getUri = function (opts, responseType) {
   var options = Object.assign({}, this.client.options, opts)
+  var tokenType = (responseType === undefined) ? 'code' : responseType
 
-  return createUri(options, 'code')
+  return createUri(options, token_type)
 }
 
 /**
