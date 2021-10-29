@@ -24,6 +24,7 @@ declare namespace ClientOAuth2 {
     accessTokenUri?: string
     authorizationUri?: string
     redirectUri?: string
+    responseType?: string[]
     scopes?: string[]
     state?: string
     body?: {

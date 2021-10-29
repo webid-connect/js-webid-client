@@ -164,7 +164,7 @@ function createUri (options, tokenType) {
   const qs = {
     client_id: options.clientId,
     redirect_uri: options.redirectUri,
-    response_type: tokenType,
+    response_type: tokenType.join(' '),
     state: options.state
   }
   if (options.scopes !== undefined) {
@@ -462,7 +462,7 @@ function TokenFlow (client) {
  */
 TokenFlow.prototype.getUri = function (opts) {
   var options = Object.assign({}, this.client.options, opts)
-  var responseType = (!!options.responseType) ? options.responseType : 'token'
+  var responseType = (!!options.responseType) ? options.responseType : ['token']
 
   return createUri(options, responseType)
 }
@@ -579,7 +579,7 @@ function CodeFlow (client) {
  */
 CodeFlow.prototype.getUri = function (opts) {
   var options = Object.assign({}, this.client.options, opts)
-  var responseType = (!!options.responseType) ? options.responseType : 'code'
+  var responseType = (!!options.responseType) ? options.responseType : ['code']
 
   return createUri(options, responseType)
 }
