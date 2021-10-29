@@ -581,7 +581,7 @@ CodeFlow.prototype.getUri = function (opts, responseType) {
   var options = Object.assign({}, this.client.options, opts)
   var tokenType = (responseType === undefined) ? 'code' : responseType
 
-  return createUri(options, tokenType)
+  return createUri(options, token_type)
 }
 
 /**
